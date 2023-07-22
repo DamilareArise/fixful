@@ -1,0 +1,318 @@
+
+{% extends 'common.html' %}
+
+    {% block title %} Dashboard {% endblock %}
+
+    {% block body_content %}
+    {% load static %}
+    
+    
+    <main class="main">
+      <div class="container-fluid">
+        <!-- <header></header> -->
+
+        <div class="row yes">
+          <div class="col-lg-11 p-4 col-sm-11 left-b">
+            <div class="row mt-3 yh">
+              <div class="col-md-8 col-sm-3 mt-4">
+                <h4 class="fw-bold">Hello, {{user.first_name}} {{user.last_name}}</h4>
+                <p class="">{{date}}</p>
+              </div>
+              <div class="col-md-4 col-sm-4 ms-auto mt-2">
+                <div class="calender">
+                  <h4>Calender</h4>
+                  <input type="week" name="" id="" />
+                  <img
+                    src="{% static './images/icons8-calender-64.png' %}"
+                    height="40"
+                    alt=""
+                    class="calender-logo"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div class="row yh mt-3">
+              <div class="col-lg-7 col-sm-12 mt-5 titi">
+                <div
+                  class="d-flex flex-lg-row flex-sm-col flex-wrap w-100 h-100 container"
+                >
+                  <div class="col-lg-4 col-sm-12 fix m-2 carde container">
+                    <a href="{% url 'request_form' %}" class="nav-link text-light">
+                      <div class="d-flex flex-column mt-sm-3 mt-lg-0">
+                        <div class="ms-auto mt-3">
+                          <img
+                            src="{% static './images/icons8-ellipsis-30 (1).png' %}"
+                            height="15"
+                            class="ellipse ms-5"
+                            alt=""
+                          />
+                        </div>
+                        <div class="mt-4">
+                          <img
+                            src="{% static './images/icons8-tools-50 (1).png' %}"
+                            height="30"
+                            alt="£fixtul"
+                          />
+                        </div>
+                        <h2 class="h-text mt-2">Request a fix</h2>
+                        <p class="p-text">
+                          Sending request to order a fix for your faulty device
+                        </p>
+                        <div class="text-end">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="19"
+                            height="19"
+                            viewBox="0 0 19 19"
+                            id="arrows"
+                          >
+                            <g fill="none" fill-rule="evenodd">
+                              <g fill="#ffffff">
+                                <g>
+                                  <g>
+                                    <g>
+                                      <g>
+                                        <path
+                                          d="M.449 3.71c.22-.258.6-.282.849-.053.248.23.27.624.05.883l-2.695 3.159L13.5 7.7v1.4l-14.833-.001 2.695 3.377c.188.236.181.574-.002.8l-.077.08c-.256.22-.635.184-.847-.082L-3.5 8.34z"
+                                          transform="translate(-347 -564) translate(215.134 195) translate(0 350.615) translate(132.106 18.68) rotate(-90 7.5 7) rotate(-90 5 8.5)"
+                                        />
+                                      </g>
+                                    </g>
+                                  </g>
+                                </g>
+                              </g>
+                            </g>
+                          </svg>
+                        </div>
+                      </div>
+                    </a>
+                  </div>
+
+                  <div
+                    class="col-lg-4 col-sm-12 fix m-2 ms-lg-4 ms-sm-0 carde not container"
+                  >
+                    <a href="{% url 'request_form' %}" class="nav-link text-light">
+                      <div class="d-flex flex-column">
+                        <div class="ms-auto mt-3">
+                          <img
+                            src="{% static './images/icons8-ellipsis-30 (1).png' %}"
+                            height="15"
+                            class="ellipse ms-5"
+                            alt=""
+                          />
+                        </div>
+                        <div class="mt-4">
+                          <img
+                            src="{% static './images/icons8-email-50 (1).png' %}"
+                            class=" "
+                            height="30"
+                            alt="£fixtul"
+                          />
+                        </div>
+
+                        <h2 class="h-text">Notification</h2>
+                        <p class="p-text">
+                          Sending request to order a fix for your faulty device
+                        </p>
+                        <div class="text-end">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="19"
+                            height="19"
+                            viewBox="0 0 19 19"
+                            id="arrows"
+                          >
+                            <g fill="none" fill-rule="evenodd">
+                              <g fill="#ffffff">
+                                <g>
+                                  <g>
+                                    <g>
+                                      <g>
+                                        <path
+                                          d="M.449 3.71c.22-.258.6-.282.849-.053.248.23.27.624.05.883l-2.695 3.159L13.5 7.7v1.4l-14.833-.001 2.695 3.377c.188.236.181.574-.002.8l-.077.08c-.256.22-.635.184-.847-.082L-3.5 8.34z"
+                                          transform="translate(-347 -564) translate(215.134 195) translate(0 350.615) translate(132.106 18.68) rotate(-90 7.5 7) rotate(-90 5 8.5)"
+                                        />
+                                      </g>
+                                    </g>
+                                  </g>
+                                </g>
+                              </g>
+                            </g>
+                          </svg>
+                        </div>
+                      </div>
+                    </a>
+                  </div>
+
+                  <div
+                    class="col-lg-4 col-sm-12 mt-3 card-s m-2 carde container"
+                  >
+                    <a href="{% url 'request_form' %}" class="nav-link text-light">
+                      <div class="d-flex flex-column">
+                        <div class="ms-auto mt-3">
+                          <img
+                            src="{% static './images/icons8-ellipsis-30 (1).png' %}"
+                            height="15"
+                            class="ellipse ms-5"
+                            alt=""
+                          />
+                        </div>
+                        <div class="mt-4">
+                          <img
+                            src="{% static './images/icons8-consultation-50.png' %}"
+                            height="30"
+                            alt="£fixtul"
+                          />
+                        </div>
+                        <h2 class="h-text text-dark">Consultation</h2>
+                        <p class="p-text text-dark">
+                          Consult expert before fix about situation of your
+                          gadgete
+                        </p>
+                        <div class="text-end">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="19"
+                            height="19"
+                            viewBox="0 0 19 19"
+                            id="arrows"
+                          >
+                            <g fill="none" fill-rule="evenodd">
+                              <g fill="black">
+                                <g>
+                                  <g>
+                                    <g>
+                                      <g>
+                                        <path
+                                          d="M.449 3.71c.22-.258.6-.282.849-.053.248.23.27.624.05.883l-2.695 3.159L13.5 7.7v1.4l-14.833-.001 2.695 3.377c.188.236.181.574-.002.8l-.077.08c-.256.22-.635.184-.847-.082L-3.5 8.34z"
+                                          transform="translate(-347 -564) translate(215.134 195) translate(0 350.615) translate(132.106 18.68) rotate(-90 7.5 7) rotate(-90 5 8.5)"
+                                        />
+                                      </g>
+                                    </g>
+                                  </g>
+                                </g>
+                              </g>
+                            </g>
+                          </svg>
+                        </div>
+                      </div>
+                    </a>
+                  </div>
+
+                  <div
+                    class="col-lg-4 col-sm-12 mt-3 fix m-2 ms-lg-4 ms-sm-0 carde shop container"
+                  >
+                    <a href="./re.html" class="nav-link text-light">
+                      <div class="d-flex flex-column">
+                        <div class="ms-auto mt-3">
+                          <img
+                            src="{% static './images/icons8-ellipsis-30 (1).png' %}"
+                            height="15"
+                            class="ellipse ms-5"
+                            alt=""
+                          />
+                        </div>
+                        <div class="mt-4">
+                          <img
+                            src="{% static './images/icons8-shopping-bag-50.png' %}"
+                            class="mb-1"
+                            height="30"
+                            alt="£fixtul"
+                          />
+                        </div>
+                        <h2 class="h-text text-dark">Shop Gadget</h2>
+                        <p class="p-text text-dark">
+                          Buy all kinds of gadgets range at exclusive price from
+                          our store
+                        </p>
+                        <div class="text-end">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="19"
+                            height="19"
+                            viewBox="0 0 19 19"
+                            id="arrows"
+                          >
+                            <g fill="none" fill-rule="evenodd">
+                              <g fill="black">
+                                <g>
+                                  <g>
+                                    <g>
+                                      <g>
+                                        <path
+                                          d="M.449 3.71c.22-.258.6-.282.849-.053.248.23.27.624.05.883l-2.695 3.159L13.5 7.7v1.4l-14.833-.001 2.695 3.377c.188.236.181.574-.002.8l-.077.08c-.256.22-.635.184-.847-.082L-3.5 8.34z"
+                                          transform="translate(-347 -564) translate(215.134 195) translate(0 350.615) translate(132.106 18.68) rotate(-90 7.5 7) rotate(-90 5 8.5)"
+                                        />
+                                      </g>
+                                    </g>
+                                  </g>
+                                </g>
+                              </g>
+                            </g>
+                          </svg>
+                        </div>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-lg-4 mo col-sm-12 mt-5">
+                <div class="fix-nwboard col-lg-12 col-sm-12 mt-5">
+                  <div
+                    class="d-flex flex-column me-3 p-3 justify-content-between h-100 w-100"
+                  >
+                    <div class="d-flex justify-content-between">
+                      <h2 class="new-board-p">Statistic</h2>
+                      <img
+                        src="{% static './images/icons8-statistic-32.png' %}"
+                        class="ellipse me-5"
+                        alt=""
+                      />
+                    </div>
+                    <div class="mb-5">
+                      <p class="mb-5">This feature is not Available</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-1 col-sm-11 ms-sm-0 p-3">
+            <div class="d-flex flex-column justify-content-between h-100">
+              <div d-flex flex-row>
+                <a href="{% url 'logout' %}" class="deco d-flex"
+                  ><p style="font-size: 13px">Log Out</p>
+                  <img
+                    src="{% static './images/icons8-log-out-30.png' %}"
+                    height="19"
+                    style="margin-top: 5px"
+                    alt=""
+                /></a>
+                <a href="{% url 'password_change' %}" class="deco d-flex"
+                  ><p style="font-size: 13px">Change password</p>
+                </a>
+                <a href="{% url 'profile' request.user.id %}" class="deco d-flex"
+                  ><p style="font-size: 13px"> My Profile</p>
+                </a>
+                {% if request.user.is_staff %}
+                <a href="{% url 'show_user' 'customer' %}" class="deco d-flex"
+                  ><p style="font-size: 13px"> View Customers</p>
+                </a>
+                {% endif %}
+                  
+                 
+              </div>
+              <div>
+                <p class="deco">Fixtul 2023 &copy;</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    {% endblock body_content %}
+

@@ -1,0 +1,114 @@
+{% extends 'common.html' %}
+
+{% block title %} Status {% endblock %}
+    {% block body_content %}
+    {% load static %}
+    
+    
+    <main class="pt-3 status">
+      <div class="container-fluid">
+        <div class="row ">
+          <div class="col-md-12 mb-3">
+            <div class="card outline-0 border-0 ">
+              <div class="card-header status outline-0 border-0 ">
+                <!-- <span><i class="bi bi-table me-2"></i></span>  -->
+                <p class="fw-bold fs-4">
+                    Check Fix Status 
+                </p>
+                <p>Today is Thursday, 1 2023</p>
+              </div>
+              <div class="card-body status outline-0 border-0 ">
+                <div class="table-responsive  status outline-0 border-0">
+                  <table
+                    id="example"
+                    class="table table-striped data-table status"
+                    style="width: 100%"
+                  >
+                    <thead>
+                      <tr>
+                        <th>Transactions</th>
+                        <th>Date</th>
+                        <th>Status</th>
+                      
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Tiger Nixon</td>
+                        <td>System Architect</td>
+                        <td>Edinburgh</td>
+                       
+                      </tr>
+                      <tr>
+                        <td>Garrett Winters</td>
+                        <td>Accountant</td>
+                        <td>Tokyo</td>
+                        
+                      </tr>
+                      <tr>
+                        <td>Ashton Cox</td>
+                        <td>Junior Technical Author</td>
+                        <td>San Francisco</td>
+                       
+                      </tr>
+                      <tr>
+                        <td>Cedric Kelly</td>
+                        <td>Senior Javascript Developer</td>
+                        <td>Edinburgh</td>
+                       
+                      </tr>
+                      <tr>
+                        <td>Airi Satou</td>
+                        <td>Accountant</td>
+                        <td>Tokyo</td>
+                      
+                      </tr>
+                      <tr>
+                        <td>Brielle Williamson</td>
+                        <td>Integration Specialist</td>
+                        <td>New York</td>
+                      
+                      </tr>
+                      <tr>
+                        <td>Herrod Chandler</td>
+                        <td>Sales Assistant</td>
+                        <td>San Francisco</td>
+                       
+                      </tr>
+                      <tr>
+                        <td>Rhona Davidson</td>
+                        <td>Integration Specialist</td>
+                        <td>Tokyo</td>
+                      
+                      </tr>
+                      <tr>
+                        <td>Colleen Hurst</td>
+                        <td>Javascript Developer</td>
+                        <td>San Francisco</td>
+                        
+                      </tr>
+                      <tr>
+                        <td>Sonya Frost</td>
+                        <td>Software Engineer</td>
+                        <td>Edinburgh</td>
+                      
+                      </tr>
+                     
+                    </tbody>
+                    <tfoot>
+                      <tr>
+                        <th>Transaction</th>
+                        <th>Date</th>
+                        <th>Status</th>
+                      </tr>
+                    </tfoot>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    
+    {% endblock body_content %}

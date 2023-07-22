@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title2 %}{% endblock title2 %}</title>
+    
+    {% load static %}
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,500;1,100&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static './css/style1.css' %}">
+    <link rel="stylesheet" href="{% static '/css/bootstrap.min.css' %}">
+
+</head>
+<body>  
+        <nav class="navbar navbar-expand-lg nave  p-3 ">
+            <div class="container-fluid nav-content">
+              <a class="navbar-brand ms-5 text-end logo" href="{% url 'home' %}"><img src="{% static './images/PHOTO-2023-06-21-08-41-21-removebg-preview.png' %}" alt="#fixtul-logo" height="50"></a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mx-auto mb-2 mb-lg-0 ">
+                {% if request.user.is_authenticated %}
+                <li class="nav-item ">
+                    <a class="nav-link ms-4 " aria-current="page" href="{% url 'home' %}">Our Service </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link ms-4" href="{% url 'dashboard' %}">Dashboard</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link ms-4" href="{% url 'dashboard' %}">Phone Fix</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link ms-4" href="{% url 'dashboard' %}">Laptop Fix</a>
+                  </li>
+                
+                {% else %}
+                  <li class="nav-item ">
+                    <a class="nav-link ms-4 " aria-current="page" href="{% url 'home' %}">Our Service </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link ms-4" href="{% url 'home' %}">Our Company</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link ms-4" href="{% url 'login' %}">Phone Fix</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link ms-4" href="{% url 'login' %}">Laptop Fix</a>
+                  </li>
+                {% endif %}
+                
+                </ul>
+                {% if request.user.is_authenticated %}
+                    <a href="{% url 'logout' %}"><button class="btn butt1 me-1" type="">logout</button></a>
+
+                {% else %}
+                  <a href="{% url 'login' %}"><button class="btn butt1 me-1" type="">Login</button></a>
+                  <a href="{% url 'signup' %}"><button class="btn  butt2 me-2" type="submit">Sign up</button></a>
+                {% endif %}
+              </div>
+            </div>
+        </nav>
+
+        {% block body_content2 %}
+        
+        {% endblock body_content2 %}
+
+
+        <footer class="footer">
+            <div class="row foot">
+                <div class="col-lg-4 col-sm-12">
+                    <div class="nw-fixtul">
+                        <img src="{% static '/PHOTO-2023-06-19-15-50-35-removebg-preview.png' %}" height="60" alt="">
+                        <p style="font-size: 12px;">Our company specializes in phone and laptop repairs. Enjoy the convenience of doorstep service, as we pick up and return your devices, ensuring a seamless experience all around Nigeria.</p>
+                        <div style="display: flex;"><img src="{% static './images/icons8-end-call-male-30.png' %}" alt="#fixtul-call-icon" style="position: absolute;"><p style=" margin-left:40px; margin-top: 6px;">+234 000 000 111</p></div>
+                    </div>
+                </div>
+                <div class="col-lg-7 col-sm-12">
+                    <div class=" d-flex flex-row  mt-lg-4  mt-sm-2 justify-content-around  align-content-center">
+
+                        <div class="contents ms-2">
+                            <p style="font-weight: 500; font-size: 18px; color: rgb(161, 171, 180);">Company</p>
+                                <p><a href=""class="col-white ">About Us</a></p>
+                                <p><a href=""class="col-white ">Support</a></p>
+                                <p><a href=""class="col-white ">Terms of Service</a></p>
+                                <p><a href=""class="col-white">Career</a></p>
+                            </div>
+                        
+                       
+                            <div class="contents ms-2">
+                                <p style="font-weight: 500;font-size: 18px; color: rgb(161, 171, 180);">Service</p>
+                                <p><a href="" class="col-white">Phone Fix</a></p>
+                                <p><a href="" class="col-white">Laptop Fix</a></p>
+                                <p><a href="" class="col-white">Technical Experts</a></p>
+                                <p><a href="" class="col-white">Customer Service</a></p>
+                            </div>
+
+            
+                        
+                            <div class="contents ms-2">
+                                <p style="font-weight: 500;font-size: 18px; color: rgb(161, 171, 180);">Resources</p>
+                                <p><a href=""class="col-white">Pricing</a></p>
+                                <p><a href=""class="col-white">Order Enquiery</a></p>
+                                <p><a href=""class="col-white">Customer Support</a></p>
+                                <p><a href=""class="col-white">Fix Status</a></p>
+                            </div>
+                            
+                            
+                        </div>
+                            
+
+
+                </div>
+
+            </div>
+
+                    <div>
+                        <div class="social  d-flex  flex-row  justify-content-between p-2  align-content-center ">
+                            <div class="soc-fxt-lo ms-3">
+                                <a href="">
+                                <?xml version="1.0"?><svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24" width="24px" height="48px" alt="#instagram-@fixtul">    <path fill="#ffffff" d="M 8 3 C 5.239 3 3 5.239 3 8 L 3 16 C 3 18.761 5.239 21 8 21 L 16 21 C 18.761 21 21 18.761 21 16 L 21 8 C 21 5.239 18.761 3 16 3 L 8 3 z M 18 5 C 18.552 5 19 5.448 19 6 C 19 6.552 18.552 7 18 7 C 17.448 7 17 6.552 17 6 C 17 5.448 17.448 5 18 5 z M 12 7 C 14.761 7 17 9.239 17 12 C 17 14.761 14.761 17 12 17 C 9.239 17 7 14.761 7 12 C 7 9.239 9.239 7 12 7 z M 12 9 A 3 3 0 0 0 9 12 A 3 3 0 0 0 12 15 A 3 3 0 0 0 15 12 A 3 3 0 0 0 12 9 z"/></svg>
+                                </a>
+                                <a href="">
+                                <?xml version="1.0"?><svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24" width="24px" height="48px">    <path fill="#ffffff" d="M22,3.999c-0.78,0.463-2.345,1.094-3.265,1.276c-0.027,0.007-0.049,0.016-0.075,0.023c-0.813-0.802-1.927-1.299-3.16-1.299 c-2.485,0-4.5,2.015-4.5,4.5c0,0.131-0.011,0.372,0,0.5c-3.353,0-5.905-1.756-7.735-4c-0.199,0.5-0.286,1.29-0.286,2.032 c0,1.401,1.095,2.777,2.8,3.63c-0.314,0.081-0.66,0.139-1.02,0.139c-0.581,0-1.196-0.153-1.759-0.617c0,0.017,0,0.033,0,0.051 c0,1.958,2.078,3.291,3.926,3.662c-0.375,0.221-1.131,0.243-1.5,0.243c-0.26,0-1.18-0.119-1.426-0.165 c0.514,1.605,2.368,2.507,4.135,2.539c-1.382,1.084-2.341,1.486-5.171,1.486H2C3.788,19.145,6.065,20,8.347,20 C15.777,20,20,14.337,20,8.999c0-0.086-0.002-0.266-0.005-0.447C19.995,8.534,20,8.517,20,8.499c0-0.027-0.008-0.053-0.008-0.08 c-0.003-0.136-0.006-0.263-0.009-0.329c0.79-0.57,1.475-1.281,2.017-2.091c-0.725,0.322-1.503,0.538-2.32,0.636 C20.514,6.135,21.699,4.943,22,3.999z"/></svg>
+                                </a>
+                                <a href="">
+                                <?xml version="1.0"?><svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24" width="24px" height="48px">    <path fill="#ffffff" d="M19.077,4.928C17.191,3.041,14.683,2.001,12.011,2c-5.506,0-9.987,4.479-9.989,9.985 c-0.001,1.76,0.459,3.478,1.333,4.992L2,22l5.233-1.237c1.459,0.796,3.101,1.215,4.773,1.216h0.004 c5.505,0,9.986-4.48,9.989-9.985C22.001,9.325,20.963,6.816,19.077,4.928z M16.898,15.554c-0.208,0.583-1.227,1.145-1.685,1.186 c-0.458,0.042-0.887,0.207-2.995-0.624c-2.537-1-4.139-3.601-4.263-3.767c-0.125-0.167-1.019-1.353-1.019-2.581 S7.581,7.936,7.81,7.687c0.229-0.25,0.499-0.312,0.666-0.312c0.166,0,0.333,0,0.478,0.006c0.178,0.007,0.375,0.016,0.562,0.431 c0.222,0.494,0.707,1.728,0.769,1.853s0.104,0.271,0.021,0.437s-0.125,0.27-0.249,0.416c-0.125,0.146-0.262,0.325-0.374,0.437 c-0.125,0.124-0.255,0.26-0.11,0.509c0.146,0.25,0.646,1.067,1.388,1.728c0.954,0.85,1.757,1.113,2.007,1.239 c0.25,0.125,0.395,0.104,0.541-0.063c0.146-0.166,0.624-0.728,0.79-0.978s0.333-0.208,0.562-0.125s1.456,0.687,1.705,0.812 c0.25,0.125,0.416,0.187,0.478,0.291C17.106,14.471,17.106,14.971,16.898,15.554z"/></svg>
+                                </a>
+                                <a href="https//fixtul.ng@gmail.com">
+                                <?xml version="1.0"?><svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24" width="24px" height="48px" fill="#ffffff">    <path d="M 4 4 C 2.895 4 2 4.895 2 6 L 2 18 C 2 19.105 2.895 20 4 20 L 20 20 C 21.105 20 22 19.105 22 18 L 22 6 C 22 4.895 21.105 4 20 4 L 4 4 z M 5.5976562 6 L 18.402344 6 L 12 10 L 5.5976562 6 z M 5 8.6269531 L 12 13 L 19 8.6269531 L 19 18 L 5 18 L 5 8.6269531 z"/></svg>
+                                </a>
+                            </div>
+                            <div class="soc-fxt mt-3">
+                                <p style="text-align: center;">English</p><img style="margin-left: 10px;" src="{% static './images/icons8-world-50.png' %}" alt="Fixtulworld-map" height="35">
+                            </div>
+                            <div class="soc-fxt mt-2 me-2">
+                                <p style="text-align: end;">Copy Right Fixtul 2023 &copy;</p>
+                            </div>
+                        </div>
+                    </div>
+
+          </footer>
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+</body>
+</html>
