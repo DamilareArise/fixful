@@ -1,0 +1,82 @@
+{% extends 'common.html' %}
+
+{% block title %} Status {% endblock %}
+    {% block body_content %}
+    {% load static %}
+    
+    
+    <main class="pt-3 status">
+      <div class="container-fluid">
+        <div class="row ">
+          <div class="col-md-12 mb-3">
+            <div class="card outline-0 border-0 ">
+              <div class="card-header status outline-0 border-0 ">
+                <p class="fw-bold fs-4">
+                    Check Fix Status 
+                </p>
+                <p>Today is {{date}}</p>
+              </div>
+              <div class="card-body status outline-0 border-0 ">
+                <div class="table-responsive  status outline-0 border-0">
+                  <table
+                    id="example"
+                    class="table table-striped data-table status"
+                    style="width: 100%"
+                  >
+                    <thead>
+                      <tr>
+                        <th>Category</th>
+                        <th>Device name</th>
+                        <th>Description</th>
+                        <th>Date</th>
+                        <th>Status</th>
+                        <th>Customer ID</th>
+
+                      
+                      </tr>
+                    </thead>
+                    {% for user_request in user_requests %}
+                        <tbody>
+                        <tr>
+                            <td>{{user_request.category}}</td>
+                            <td>{{user_request.device_name}}</td>
+                            <td>{{user_request.description}}</td>
+                            <td>{{user_request.date_created}}</td>
+                            <td>
+                                <a href="{% url 'request_service' user_request.service_id %}" style="text-decoration: none;">
+                                {% if user_request.status == 1 %}
+                                    Fixed
+                                {% else %}
+                                    Fix in progress   
+                                {% endif %}  
+                                </a>
+                            </td>
+                            <td>
+                                <a href="{% url 'profile' user_request.user.id %}" style="text-decoration: none;">
+                                FX0{{user_request.user_id}}
+                                </a>
+                            </td>
+                        </tr>
+                        </tbody>
+                    {% endfor %}
+                    <tfoot>
+                        <tr>
+                            <th>Category</th>
+                            <th>Device name</th>
+                            <th>Description</th>
+                            <th>Date</th>
+                            <th>Status</th>
+                            <th>Customer ID</th>
+                          
+                          </tr>
+                    </tfoot>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    
+    {% endblock body_content %}
