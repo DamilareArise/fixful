@@ -92,9 +92,6 @@ class User_update_form(forms.ModelForm):
             'nationality',
             'state',
             'profile_passport',
-            'position',
-            'marital_status',
-
         ]
 
         widgets = {

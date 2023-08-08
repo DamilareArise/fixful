@@ -27,15 +27,15 @@ urlpatterns = [
     path('',TemplateView.as_view(template_name= 'index.html'), name='home'),
     path('request/', TemplateView.as_view(template_name='requestapp/request.html'), name='request'),
     # path('status/', TemplateView.as_view(template_name='status.html'), name='status'),
-    path('support/', TemplateView.as_view(template_name='support.html'), name='support'),
+    path('support/', TemplateView.as_view(template_name='requestapp/support.html'), name='support'),
     # path('dashboard/', TemplateView.as_view(template_name='dashboard.html'), name='dashboard'),
     re_path(r'^accounts/', include('django.contrib.auth.urls')),
     re_path(r'^accounts/signup/$', SignUpView.as_view(), name= "signup"),
     re_path(r'^userapp/', include('fixful.userapp.urls')),
     re_path(r'^requestapp/', include('fixful.requestapp.urls')),
-
+    re_path(r'^consultapp/', include('fixful.consultapp.urls')),
 ]
 
 urlpatterns += staticfiles_urlpatterns()
-urlpatterns += static(settings.MEDIA_URL,document_root = settings.MEDIA_ROOT)
+urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
 

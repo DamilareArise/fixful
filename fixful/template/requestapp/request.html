@@ -21,6 +21,14 @@
           />
         </div>
       </div>
+      <div class="container">
+        <span class="text-secondary fs-3 m-5">
+          {% if messages %}
+              {% for message in messages %}
+                  {{message}}
+              {% endfor %}
+          {% endif %}</span>
+      </div>
     </div>
     <form method="post" enctype="multipart/form-data">
       {% csrf_token %}
@@ -43,7 +51,6 @@
             <div class="ms-3">
                 {{form.device_name}}
             </div>
-              
               <div class="mx-auto">
                 <input type="submit" value="Submit" class="submit-reqbtn btn" />
               </div>
@@ -64,7 +71,6 @@
             </div>
           </div>
         </div>
-
         <div class="p-3 reg" >
           <div class="">
             <label for="Email" class="mt-3"

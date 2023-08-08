@@ -45,7 +45,7 @@ class Profile(models.Model):
     state = models.CharField(choices=states, unique=False, max_length=20, null=True)
     means_of_identity = models.ImageField(upload_to = 'identityImage/', unique=False,  null=True)
     particulars = models.ImageField(upload_to = 'particularsImage/', unique=False, null=True)
-    profile_passport = models.ImageField(upload_to = 'staffImage/', unique=False, null=True)
+    profile_passport = models.ImageField(upload_to = 'staffImage/', unique=False, null=True,)
     position = models.CharField(choices=position, unique=False, max_length=25, null=True)
     marital_status = models.CharField(choices=ma_status, unique=False, max_length=25, null=True)
     staff = models.BooleanField(default=False, unique=False, null=False)

@@ -21,4 +21,7 @@ class Repair_category(models.Model):
     address =  models.CharField(unique=False, max_length=50, null=False)
     date_created = models.DateField(auto_now_add=True, unique=False, max_length=11, null=True)
     status = models.BooleanField(default=False, blank=True, null=True, unique=False)
+    
+
+
 

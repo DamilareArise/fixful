@@ -1,186 +1,100 @@
-{% extends 'common2.html' %}
-
-    {% block title2 %}Home{% endblock title2 %}
-    {% block body_content2 %}
-    {% load static %}
-
-    <div style="margin-top: 10vh;">
-        <div class="row">
-        <div class="col-3"></div>
-        <div class="col-md-6 col-12 col-offset-3">
-            <p>
-                <span class="date text-pink text-size-30px mt-5">
-                {% if messages %}
-                    {% for message in messages %}
-                        {{message}}
-                    {% endfor %}
-                {% endif %}
-                </span>
-            </p>
-                {% if userprofile %}
-
-                    {% for profile in userprofile  %}
-                    <div class="card">
-                        <header class = "card-header">
-                            <p class="card-header-title">
-                                <span class="icon"><i class="mdi mdi account"></i></span>
-                                {% if profile.staff == 1 %}
-                                    Staff's Personal Record
-                                
-                                {% else %}
-                                    Customers's Personal Record
-                                {% endif %}
-
-                            </p>
-                        </header>
-                        <div class="field">
-                            <p class="card-header-title">
-                                <span class="icon"><i class="mdi mdi-account"></i></span>
-                                {% if profile.staff == 1 %}
-                                    Staff ID:
-                                {% else %}
-                                    Customer ID: FX0{{profile.user_id}}<hr>
-                                    Username: {{profile.user.username}}
-                                {% endif %}
-                            </p>
-                        </div>
-
-                            <div class="card-content">
-                                {% if profile.profile_passport %}
-                                    <div class="image w-30 h-10 mx-auto">
-                                        <img src="{{profile.profile_passport.url}}" alt="{{profile.username}}" class="rounded-full" height=200 width=200>
-                                    </div>
-                                {% else %}
-
-                                    <div class="image w-30 h-10 mx-auto">
-                                        <img src="http://.../{{profile.user.username}}" alt="{{profile.user.username}}" class="rounded full">
-                                    </div>
-                                {% endif %}
-                            <hr>
-                            <div class= "field">
-                                <label class="label">Fullname</label>
-                                <div class ="control">
-                                    {{profile.user.first_name}} {{profile.user.last_name}}
-                                </div>
-                            </div>
-                            <hr>
-                            <div class= "field">
-                                <label class="label">Email</label>
-                                <div class ="control">
-                                    {{profile.user.email}}
-                                </div>
-                            </div>
-                            <hr>
-                            <div class= "field">
-                                <label class="label">Phone</label>
-                                <div class ="control">
-                                    {{profile.phone}}
-                                </div>
-                            </div>
-                            <hr>
-                            <div class= "field">
-                                <label class="label">Date of Birth</label>
-                                <div class ="control">
-                                    {{profile.date_of_birth}}
-                                </div>
-                            </div>
-                            <hr> 
-                            <div class= "field">
-                                <label class="label">Marital status</label>
-                                <div class ="control">
-                                    {{profile.marital_status}}
-                                </div>
-                            </div>
-                            <hr>
-                            <div class= "field">
-                                <label class="label">Address</label>
-                                <div class ="control">
-                                    {{profile.address}}
-                                </div>
-                            </div>
-                            <hr>
-                            <div class= "field">
-                                <label class="label">State</label>
-                                <div class ="control">
-                                    {{profile.state}}
-                                </div>
-                            </div>
-                            <hr>
-                            <div class= "field">
-                                <label class="label">Nationality</label>
-                                <div class ="control">
-                                    {{profile.nationality}}
-                                </div>
-                            </div>
-                            <hr>
-                            {% if request.user.is_staff or request.user.is_superuser %}
-                                <div class= "field">
-                                    <label class="label">Position</label>
-                                    <div class ="control">
-                                        {{profile.position}}
-                                    </div>
-                                </div>
-                                <hr>
-                                {% if profile.pariculars %}
-                                    
-                                    <div class= "field">
-                                        <label class="label">Particulars</label>
-                                        <div class ="control">
-                                            {{profile.particulars}}
-                                        </div>
-                                    </div>
-                                    <hr>
-                                
-                                {% endif %}
-                                {% if profile.means_of_identity %}
-                                    
-                                    <div class= "field">
-                                        <label class="label">Means of identity</label>
-                                        <div class ="control">
-                                            {{profile.nationality}}
-                                        </div>
-                                    </div>
-                                    <hr>
-                                {% endif %}
-                                
-                            {% endif %}
-                            <div class= "field">
-                                <div class ="control">
-                                    {% if request.user.is_superuser %}
-                                        <a href="{% url 'edit_admin_profile' profile.user_id %}">
-                                            <button type="submit" class="button success">
-                                                Edit account
-                                            </button>
-                                        </a>
-                                    {% else %}
-                                        <a href="{% url 'edit_user_profile' profile.user_id %}">
-                                            <button type="submit" class="button success">
-                                                Edit account
-                                            </button>
-                                        </a>
-                                    {% endif %}    
-                                    <a href="{% url 'deactivate_profile' profile.user_id %}">
-                                        <button type="submit" class="button danger">
-                                            {% if request.user.is_superuser %}
-                                                {% if profile.user.is_active == 1 %}
-                                                Deactivate
-                                                {% else %}
-                                                    Activate
-                                                {% endif %}
-                                            
-                                            {% endif %}
-                                            
-                                        </button>
-                                    </a>
-                                </div>
-                            </div>
-                    </div>
-                    {% endfor %}
-                {% endif %}
+{% extends 'common2.html' %} 
+{% block title2 %}Home{% endblock title2 %} 
+{% block body_content2 %} 
+{% load static %}
+<section class="row" style="margin-top: 9vh; padding-top: 10vh">
+  {% if userprofile %} {% for profile in userprofile %}
+  <div class="shadow border col-sm-12 col-md-4 pt-3" style="height: auto; margin: auto;">
+    <div class=" container-fluid d-flex p-4 py-4 gap-4">
+       <div class=" border border-primary rounded-circle " style="height: 100px; width: 100px;">
+          {% if profile.profile_passport %}
+         <img src="{{profile.profile_passport.url}}" alt="img" width="100px" height="100px" />
+         {% else %}
+         <i class="fas fa-user fa-lg fa-fw me-2"></i>
+          {% endif %}
         </div>
-        <div class="col-3"></div>
-        </div>
-        <div>
+        <h5 class="align-self-center">Account Details</h5>
+        
     </div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          {% if profile.staff == 1 %}
+          <td class="py-3" style="width: 150px;">Staff ID:</td>
+          <td class="py-3" >FX0{{profile.user_id}}</td>
+          {% else %}
+          <td class="py-3" style="width: 150px;">Account ID:</td>
+          <td class="py-3">FX0{{profile.user_id}}</td>
+          {% endif %}
+        </tr>
+        <tr>
+          <td class="py-3" style="width: 150px;">Username:</td>
+          <td class="py-3">{{profile.user.username}}</td>
+        </tr>
+        <tr>
+          <td class="py-3" style="width: 150px;">Acccount Name:</td>
+          <td class="py-3">{{profile.user.first_name}} {{profile.user.last_name}}</td>
+        </tr>
+        <tr>
+          <td class="py-3" style="width: 150px;">Email:</td>
+          <td class="py-3">{{profile.user.email}}</td>
+        </tr>
+        <tr>
+          <td class="py-3" style="width: 150px;">Phone:</td>
+          <td class="py-3">{{profile.phone}}</td>
+        </tr>
+        <tr>
+          <td class="py-3" style="width: 150px;">Address:</td>
+          <td class="py-3">{{profile.address}}</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class= "field">
+      <div class ="control d-flex justify-content-center gap-2 py-4">
+          {% if request.user.is_superuser %}
+              <a href="{% url 'edit_admin_profile' profile.user_id %}">
+                  <button type="submit" class="btn btn-primary">
+                      Edit account
+                  </button>
+              </a>
+          {% else %}
+              <a href="{% url 'edit_user_profile' profile.user_id %}">
+                  <button type="submit" class="btn btn-primary">
+                      Edit account
+                  </button>
+              </a>
+          {% endif %}    
+          {% if request.user.is_superuser %}
+          <a href="{% url 'deactivate_profile' profile.user_id %}">
+              <button type="submit" class="btn btn-secondary">
+                {% if profile.user.is_active == 1 %}
+                Deactivate
+                {% else %}
+                    Activate
+                {% endif %}   
+               </button>
+            </a>
+           {% endif %}
+      </div>
+      <p>
+        <span class="text-primary">
+        {% if messages %}
+            {% for message in messages %}
+                {{message}}
+            {% endfor %}
+        {% endif %}
+        </span>
+       </p>
+    </div>
+    
+    {% endfor %} {% endif %}
+</section>
 
-    {% endblock %}
+ 
+{% endblock %}

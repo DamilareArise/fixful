@@ -1,0 +1,57 @@
+{% extends 'common.html' %}
+
+    {% block title %} Home {% endblock %}
+
+    {% block body_content %}
+    {% load static %}
+    
+    
+    <main class="mt-5 pt-3 status h-100">
+      <div class="container-fluid">
+        <div class="row yh mb-5">
+          <div class="col-md-9 col-sm-3 mt-lg-3 mt-sm-0">
+            <h4 class="fw-bold" >Hello, {{user.first_name}} {{user.last_name}}</h4>
+            <p class=" " >{{date}}</p>
+          </div>
+          <div class="col-md-3 col-sm-4 ms-auto mt-lg-3 mt-sm-0">
+            <div class="calender mb-5">
+              <h4>Calender</h4> <input type="week" name="" id="">
+              <img src="{% static './images/icons8-calender-64.png' %}" height="40" alt="" class="calender-logo">
+            </div>
+          </div>
+        </div>
+        <div class="container">
+          <span class="text-secondary fs-3 m-5">
+            {% if messages %}
+                {% for message in messages %}
+                    {{message}}
+                {% endfor %}
+            {% endif %}</span>
+        </div>
+        <form method="post" enctype="multipart/form-data">
+          {% csrf_token %}
+          <div  class="p-2 stat mt-5 supe  sup">
+            <div  class="mb-lg-4 mb-sm-0">
+              <div class="d-flex">
+                <label for="basic-url" class="form-label ms-3 mx-1">Select Category </label>
+                  {{form_consult.category}}
+                <label for="basic-url" class="form-label ms-3 mx-1">Device Name </label>
+                  {{form_consult.device_name}}
+              </div>
+            </div>
+                <div class="p-4">
+                  <div class="d-flex justify-content-between mt-2 line-30" >
+                    <label for="basic-url" class="form-label">Enter your complaint</label>
+                    <label for="basic-url" class="form-label ">
+                      <input type="submit" value="Submit" class=" btn submit-complainbtn" />
+                    </label>
+                  </div>
+                  <div class="input-group">
+                    {{form_consult.complaint}}
+                  </div>
+                </div>
+          </div>
+        </form>
+      </div>
+    </main>
+    {% endblock body_content %}

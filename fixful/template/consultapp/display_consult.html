@@ -1,0 +1,80 @@
+{% extends 'common.html' %}
+
+{% block title %} Status {% endblock %}
+    {% block body_content %}
+    {% load static %}
+    
+    
+    <main class="pt-3 status">
+      <div class="container-fluid">
+        <div class="row ">
+          <div class="col-md-12 mb-3">
+            <div class="card outline-0 border-0 ">
+              <div class="card-header status outline-0 border-0 ">
+                {% if request.user.is_staff %}
+                <p class="fw-bold fs-4">
+                  Complain Log 
+                </p>
+                {% else %}
+                <p class="fw-bold fs-4">
+                  Check Fix Status 
+                </p>
+                {% endif %}
+                <p>Today is {{date}}</p>
+              </div>
+              <div class="card-body status outline-0 border-0 ">
+                <div class="table-responsive  status outline-0 border-0">
+                  <table
+                    id="example"
+                    class="table table-striped data-table status"
+                    style="width: 100%"
+                  >
+                    <thead>
+                      <tr>
+                        <th>Service ID</th>
+                        <th>Category</th>
+                        <th>Device name</th>
+                        <th>Complains</th>
+                        <th>Date</th>
+                        <th>Customer ID</th>
+                      </tr>
+                    </thead>
+                    {% for user_con in user_consult %}
+                        <tbody>
+                        <tr>
+                            <td>{{user_con.service_id}}</td>
+                            <td>{{user_con.category}}</td>
+                            <td>{{user_con.device_name}}</td>
+                            <td>{{user_con.complaint}}</td>
+                            <td>{{user_con.date_created}}</td>
+                            <td>
+                                <a href="{% url 'profile' user_con.user.id %}" style="text-decoration: none;">
+                                FX0{{user_con.user_id}}
+                                </a>
+                            </td>
+                            <td>
+                             
+                          </td>
+                        </tr>
+                        </tbody>
+                    {% endfor %}
+                    <tfoot>
+                        <tr>
+                            <th>Service ID</th>
+                            <th>Category</th>
+                            <th>Device name</th>
+                            <th>Complains</th>
+                            <th>Date</th>
+                            <th>Customer ID</th>
+                          </tr>
+                    </tfoot>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    
+    {% endblock body_content %}

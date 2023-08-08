@@ -12,14 +12,14 @@
                 {% load bootstrap %}
                 {{form |bootstrap_horizontal:'col-lg-6'}}
 
-                <div class="d-flex justify-content-center mt-2">
-                <input class='bc-white  ml-2 me-3 loginbutton' type='submit' value='login'>
+                <div class="d-flex justify-content-center mt-3">
+                    <input class='btn btn-primary me-3' type='submit' value='login'>
 
+                    <p class='col-md-6 col-lg-6 col-xxl-6 col-sm-12 col-xm-12 '>
+                        <a href ="{% url 'password_reset' %}" class ="text-secondary">Forgot password</a>
+                    </P>
+                </div>
             </form>
-            <p class='col-md-6 col-lg-6 col-xxl-6 col-sm-12 col-xm-12'>
-                <a href ="{% url 'password_reset' %}" class =" date text-primary mt-3 mt-1">Forgot password</a>
-            </P>
-        </div>
         </div>
         <div class='col-3'></div>
         </div>

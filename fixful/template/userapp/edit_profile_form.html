@@ -14,7 +14,7 @@
                     {% endfor %}
                 {% endif %}</span>
             </p>
-            <form method="post" class="mt-4", encytype="multipart/form-data">
+            <form method="post" class="mt-4 border shadow p-3", encytype="multipart/form-data">
                 {% csrf_token %}
                 {% load bootstrap %}
 
@@ -22,7 +22,7 @@
                 {{profile_form|bootstrap}}
 
                 <div class='d-flex justify-content-center'>
-                    <input class="bc-white mt-2 me-3 loginbutton" type="submit" value="Update">
+                    <input class="btn btn-primary mt-2 me-3 loginbutton" type="submit" value="Update">
                 </div>
             </form>
         </div>

@@ -7,13 +7,13 @@
             <div class="row">
             <div class="col-3"></div>
             <div class="col-md-6 col-12 col-offset-3">
-                <form method='post' class='mt-4'>
+                <form method='post' class='mt-4 p-4'>
                     {% csrf_token %}
                     {% load bootstrap %}
                     {{form |bootstrap_horizontal:'col-lg-6'}}
     
                     <div class="d-flex justify-content-center">
-                    <input class='bc-white mt-2 ml-2 me-3 loginbutton' type='submit' value='Sign up'>
+                    <input class='btn btn-primary mt-2 ms-2' type='submit' value='Sign up'>
     
                 </form>
                

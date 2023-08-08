@@ -105,7 +105,7 @@
                 <span class="">
                   <div class="profile-icon">
                     {% if user.profile.profile_passport %}
-                      <img src="{{user.profile.profile_passport.url}}" alt="img" width="100px" height="100px" />
+                      <img src="{{profile.profile_passport.url}}" alt="img" width="100px" height="100px" />
                     {% else %}
                       <i class="fas fa-user fa-lag fa-fw text-dark me-2"></i>
                     {% endif %}
@@ -136,7 +136,7 @@
             </li>
 
             <li>
-              <a href="{% url 'display_request_details' %}" class="nav-link px-3 mb-2 active">
+              <a href="{% url 'display_request_details' %}" class="nav-link nav-item px-3 mb-2 active">
                 <img
                   src="{% static './images/icons8-status-50.png' %}"
                   height="24"
@@ -144,11 +144,34 @@
                   class="me-3"
                   alt="#status"
                 />
+                {% if request.user.is_staff %}
+                <span> Notification</span>
+                {% else %}
                 <span> Fix Status</span>
+                {% endif %}
+                
               </a>
             </li>
             <li>
-              <a href="{% url 'support' %}" class="nav-link px-3 me-4 mb-2 active">
+              {% if request.user.is_staff %}
+              <a href="{% url 'display_consult' %}" class="nav-link px-3 me-4 mb-2 active">
+                <img
+                  src="{% static './images/icons8-consultation-50.png' %}"
+                  class="me-3"
+                  height="24"
+                  style="margin-top: -11px"
+                  alt="#status"
+                />
+                <span> Logs </span>
+                <img
+                  class="image-set"
+                  src="{% static './images/Oval Shape PNG.png' %}"
+                  alt="#dashboard"
+                  height="260"
+                />
+              </a>
+              {% else %}
+              <a href="{% url 'consultation_form' %}" class="nav-link px-3 me-4 mb-2 active">
                 <img
                   src="{% static './images/icons8-consultation-50.png' %}"
                   class="me-3"
@@ -164,10 +187,10 @@
                   height="260"
                 />
               </a>
-              <a href="{% url 'home' %}" class="nav-link px-3 me-4 mb-2 active">
-                <span> Back </span>
-              </a>
-              </a>
+              {% endif %}
+              <span>
+                <a href="{% url 'home' %}" class="nav-link px-3 me-4 mb-2 active">Home</a>
+              </span>
             </li>
           </ul>
         </nav>

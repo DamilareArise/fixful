@@ -31,8 +31,7 @@
                         <th>Date</th>
                         <th>Status</th>
                         <th>Customer ID</th>
-
-                      
+                        
                       </tr>
                     </thead>
                     {% for user_request in user_requests %}
@@ -45,9 +44,9 @@
                             <td>
                                 <a href="{% url 'request_service' user_request.service_id %}" style="text-decoration: none;">
                                 {% if user_request.status == 1 %}
-                                    Fixed
+                                    Gadget Fixed  
                                 {% else %}
-                                    Fix in progress   
+                                    Request sent 
                                 {% endif %}  
                                 </a>
                             </td>
@@ -55,6 +54,9 @@
                                 <a href="{% url 'profile' user_request.user.id %}" style="text-decoration: none;">
                                 FX0{{user_request.user_id}}
                                 </a>
+                            </td>
+                            <td>
+                              {{email}}
                             </td>
                         </tr>
                         </tbody>
@@ -67,7 +69,7 @@
                             <th>Date</th>
                             <th>Status</th>
                             <th>Customer ID</th>
-                          
+                            
                           </tr>
                     </tfoot>
                   </table>
