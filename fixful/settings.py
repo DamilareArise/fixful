@@ -82,14 +82,11 @@ WSGI_APPLICATION = "fixful.wsgi.application"
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.mysql",
-        "NAME": 'fixful_db',
-        'USER': 'root',
-        'PASSWORD': '',
-        'HOST': '127.0.0.1',
-        'PORT': '3306',
-        'OPTIONS':  {
-            'autocommit':True,
-        }
+        "NAME": 'DamilareArise$fixful_db',
+        'USER': 'DamilareArise',
+        'PASSWORD': 'Abidemi1#',
+        'HOST': 'DamilareArise.mysql.pythonanywhere-services.com',
+       
     }
 
 }
