@@ -20,36 +20,59 @@
             </div>
           </div>
         </div>
-        <div class="container">
+        {% if messages %}
           <span class="text-secondary fs-3 m-5">
-            {% if messages %}
-                {% for message in messages %}
-                    {{message}}
-                {% endfor %}
-            {% endif %}</span>
-        </div>
+            {% for message in messages %}
+                {{message}}
+            {% endfor %}
+          </span>
+        {% endif %}
         <form method="post" enctype="multipart/form-data">
           {% csrf_token %}
-          <div  class="p-2 stat mt-5 supe  sup">
-            <div  class="mb-lg-4 mb-sm-0">
+          <div class="p-2 stat mt-5 supe sup">
+            <div class="mb-lg-4 mb-sm-0">
               <div class="d-flex">
-                <label for="basic-url" class="form-label ms-3 mx-1">Select Category </label>
-                  {{form_consult.category}}
-                <label for="basic-url" class="form-label ms-3 mx-1">Device Name </label>
-                  {{form_consult.device_name}}
+                <label for="basic-url" class="form-label mx-3"
+                  >Select
+                  Category
+                </label>
+                <select class="select-forsupport" id="{{ form_consult.category.id_for_label }}" name="{{ form_consult.category.name }}">
+                  {% for choice in form_consult.category.field.choices %}
+                      <option value="{{ choice.0 }}" {% if choice.0 == form_consult.category.value %}selected{% endif %}>{{ choice.1 }}</option>
+                  {% endfor %}
+                </select>
+                <input
+                    class="select-forsupport ms-3"
+                    placeholder="Phone name" 
+                    type="text" 
+                    id="{{ form_consult.device_name.id_for_label }}" 
+                    name="{{ form_consult.device_name.name }}" 
+                    
+                  />
+              </div> 
+            </div>
+           
+            <div class="p-4">
+              <div class="d-flex justify-content-between mt-2 line-30">
+                <label for="basic-url" class="form-label"
+                  >Enter your complaint</label
+                >
+                <label for="basic-url" class="form-label"
+                  ><button class="btn submit-complainbtn">Submit</button></label
+                >
+              </div>
+              <div class="input-group">
+                <textarea
+                  class="form-control sup"
+                  rows="9"
+                  aria-label="With textarea"
+                  placeholder=" Please fill in your complaint here "
+                  id="{{ form_consult.complaint.id_for_label }}" 
+                  name="{{ form_consult.complaint.name }}" 
+                  value="{{ form_consult.complaint.value }}"
+                ></textarea>
               </div>
             </div>
-                <div class="p-4">
-                  <div class="d-flex justify-content-between mt-2 line-30" >
-                    <label for="basic-url" class="form-label">Enter your complaint</label>
-                    <label for="basic-url" class="form-label ">
-                      <input type="submit" value="Submit" class=" btn submit-complainbtn" />
-                    </label>
-                  </div>
-                  <div class="input-group">
-                    {{form_consult.complaint}}
-                  </div>
-                </div>
           </div>
         </form>
       </div>

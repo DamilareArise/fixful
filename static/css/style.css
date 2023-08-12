@@ -10,6 +10,7 @@ button {
 }
 .sidebar-nav {
   font-family: 'Raleway';
+
   width: var(--offcanvas-width)
 }
 .sidebar-link {
@@ -279,7 +280,6 @@ button {
   margin-left: -80px;
   rotate: 120deg;
   opacity: 05%;
-  z-index: 10;
 }
 
 .regu{

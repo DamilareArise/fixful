@@ -11,13 +11,13 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static './css/style1.css' %}">
-    <link rel="stylesheet" href="{% static '/css/bootstrap.min.css' %}">
+
 
 </head>
-<body>  
+<body style="overflow-x: hidden;">  
         <nav class="navbar navbar-expand-lg nave p-3">
             <div class="container-fluid nav-content">
-              <a class="navbar-brand ms-5 text-end logo" href="{% url 'home' %}"><img src="{% static './images/PHOTO-2023-06-21-08-41-21-removebg-preview.png' %}" alt="#fixtul-logo" height="50"></a>
+              <a class="navbar-brand text-end logo" href="{% url 'home' %}"><img src="{% static './images/PHOTO-2023-06-21-08-41-21-removebg-preview.png' %}" alt="#fixtul-logo" height="50"></a>
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>
@@ -67,13 +67,11 @@
         {% block body_content2 %}
         
         {% endblock body_content2 %}
-
-
         <footer class="footer">
             <div class="row foot">
                 <div class="col-lg-4 col-sm-12">
                     <div class="nw-fixtul">
-                        <img src="{% static '/PHOTO-2023-06-19-15-50-35-removebg-preview.png' %}" height="60" alt="">
+                        <img src="{% static './images/PHOTO-2023-06-19-15-50-35-removebg-preview.png' %}" height="60" alt="">
                         <p style="font-size: 12px;">Our company specializes in phone and laptop repairs. Enjoy the convenience of doorstep service, as we pick up and return your devices, ensuring a seamless experience all around Nigeria.</p>
                         <div style="display: flex;"><img src="{% static './images/icons8-end-call-male-30.png' %}" alt="#fixtul-call-icon" style="position: absolute;"><p style=" margin-left:40px; margin-top: 6px;">+2349015961689</p></div>
                     </div>
