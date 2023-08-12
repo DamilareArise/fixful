@@ -30,7 +30,7 @@ def request_form_view(request):
             send_mail(
                 'Fix Alert',# Subject of the mail
                 'A customer just asked for a Fix. Kindly login and do a proper follow up', # Body of the mail
-                'fixtul@gmail.com', # From email (Sender)
+                'fixtulnigeria@gmail.com', # From email (Sender)
                 [email], # To email (Receiver)
                 fail_silently=False, # Handle any error
             )
@@ -43,7 +43,7 @@ def request_form_view(request):
             send_mail(
                 'Fix Consult',# Subject of the mail
                 f'Thank You {firstname} {lastname}, your fix request has been recieved and would be attended to shortly.', # Body of the mail
-                'Fixtul@gmail.com', # From email (Sender)
+                'Fixtulnigeria@gmail.com', # From email (Sender)
                 [user_email], # To email (Receiver)
                 fail_silently=False, # Handle any error
             )

@@ -36,7 +36,7 @@ def consultation_form_view(request):
             send_mail(
                 'Fix Consult',# Subject of the mail
                 'A customer just sent a complain concerning a Fix. Kindly login and do a proper follow up', # Body of the mail
-                'Fixtul@gmail.com', # From email (Sender)
+                'Fixtulnigeria@gmail.com', # From email (Sender)
                 [email], # To email (Receiver)
                 fail_silently=False, # Handle any error
             )
@@ -48,7 +48,7 @@ def consultation_form_view(request):
             send_mail(
                 'Fix Consult',# Subject of the mail
                 f'Thank You {firstname} {lastname}, your complain has been recieved and would be attended to shortly.', # Body of the mail
-                'Fixtul@gmail.com', # From email (Sender)
+                'Fixtulnigeria@gmail.com', # From email (Sender)
                 [user_email], # To email (Receiver)
                 fail_silently=False, # Handle any error
             )
