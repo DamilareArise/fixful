@@ -23,7 +23,6 @@
                                     <th>FULL NAME</th>
                                     {% if status == 'staff' %}
                                         <th>POSITION</th>
-                                        <th>DEPARTMENT</th>
                                     {% endif %}
                                     <th>STATUS</th>
                                     <th>PROFILE</th>
@@ -62,11 +61,7 @@
                                                     {{user.profile.position}}
                                                 </span>
                                             </td>
-                                            <td>
-                                                <span style="color: #969cad;" class= "font-weight-bold">
-                                                    {{user.profile.department}}
-                                                </span>
-                                            </td>
+                                            
                                         {% endif %}
                                         <td>
                                             <span style="color: #969cad;" class= "font-weight-bold">

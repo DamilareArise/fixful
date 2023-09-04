@@ -28,12 +28,15 @@ def editAdminProfile(request, userid):
         user_form = User_form(request.POST, instance=user)
         profile_form = Admin_update_form(request.POST, request.FILES, instance=user.profile)
         if user_form.is_valid() and profile_form.is_valid():
+                
             user_form.save()
             profile_form.save()
             if profile_form.cleaned_data['staff']:
                 user.is_staff = True
+                user.save()
             else:
                 user.is_staff = False
+                user.save()
 
             print("valid valid")
             user.save()
@@ -42,7 +45,8 @@ def editAdminProfile(request, userid):
         else:
             print("invalid invalid")
             messages.error(request, 'Please correct the error below.')
-            return render(request, 'userapp/edit_profile_form.html', {'user_form': user_form, 'profile_form': profile_form})
+            return HttpResponsePermanentRedirect(reverse('edit_admin_profile', args=(userid,)))
+    
     else:
         user = get_object_or_404(User, id=userid)
         user_form = User_form(instance=user)
@@ -58,13 +62,11 @@ def editUserProfile(request, userid):
         if user_form.is_valid() and profile_form.is_valid():
             user_form.save()
             profile_form.save()
-            print("valid valid")
             messages.success(request, 'Your profile was successfully updated!')
             return profile(request, userid)
         else:
-            print("invalid invalid")
             messages.error(request, 'Please correct the error below.')
-            return render(request, 'userapp/edit_profile_form.html', {'user_form': user_form, 'profile_form': profile_form})
+            return HttpResponsePermanentRedirect(reverse('edit_user_profile', args=(userid,)))
     else:
         user = get_object_or_404(User, id=userid)
         user_form = User_form(instance=user)
@@ -96,7 +98,7 @@ def displayUsers(request, user):
         allUser = User.objects.all().filter(is_staff=False)
 
 
-    return render(request, "userapp/display_user.html",  {"allUser":allUser, "status":user,})
+    return render(request, "userapp/display_user.html",  {"allUser":allUser, "status":user})
 
 
 def dashboard(request):

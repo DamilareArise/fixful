@@ -23,9 +23,10 @@ class Profile(models.Model):
         ("HR", "HR"),
         ("Accountant", "Accountant"),
         ("Admin", "Admin"),
-        ("Consultant", "Consultant")
+        ("Consultant", "Consultant"),
+        ("Engineer", "Engineer"),
     ]
-
+    
     ma_status = [
         ("Single", "Single"),
         ("Married", "Married"),

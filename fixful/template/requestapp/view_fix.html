@@ -1,0 +1,89 @@
+{% extends 'common.html' %}
+
+{% block title %} View Fix {% endblock %}
+    {% block body_content %}
+    {% load static %}
+
+    <section class="row my-4 "style="width: 100vw;">
+    {% if my_fix %} {% for detail in my_fix %}
+        <div class="shadow border col-sm-12 col-md-6 pt-3" style="height: auto; margin: auto;">
+                <div class=" container-fluid d-flex py-4">
+                    <h5 class="align-self-center mx-3">Fix Details</h5>   
+                </div>
+                <table class="table">
+                    <tbody>
+                        <tr>
+                        <td class="py-3" style="width: 150px;">Client ID:</td>
+                        <td class="py-3" >FX0{{detail.user_id}}</td>
+                        </tr>
+                        <tr>
+                        <td class="py-3" style="width: 150px;">Request Date:</td>
+                        <td class="py-3">{{detail.date_created}}</td>
+                        </tr>
+                        <tr>
+                        <td class="py-3" style="width: 150px;">Category:</td>
+                        <td class="py-3">{{detail.category}}</td>
+                        </tr>
+                        <tr>
+                        <td class="py-3" style="width: 150px;">Description:</td>
+                        <td class="py-3">{{detail.description}}</td>
+                        </tr>
+                        <tr>
+                        <td class="py-3" style="width: 150px;">Device:</td>
+                        <td class="py-3">{{detail.device_name}}</td>
+                        </tr>
+                        <tr>
+                        <td class="py-3" style="width: 150px;">Status:</td>
+                        <td class="py-3">{{detail.status}}</td>
+                        </tr>
+                        <tr>
+                            <td class="py-3" style="width: 150px;">Staff in charge:</td>
+                            <td>
+                                {% if request.user.is_staff %}
+                                <a href="{% url 'profile' detail.staff_in_charge.id %}" style="text-decoration: none;">
+                                    Agt. {{detail.staff_in_charge.first_name}} {{detail.staff_in_charge.last_name}}
+                                </a>
+                                {% else %}
+                                Agt. {{detail.staff_in_charge.first_name}} {{detail.staff_in_charge.last_name}}
+                                {% endif %}
+                              </td>
+                        
+                        </tr>
+                        {% if request.user.is_staff %}
+                        <tr>
+                            <td class="py-3" style="width: 150px;">Engineer:</td>
+                            <td class="py-3">Engr. {{detail.engineer}}</td>
+                        </tr>
+                        {% endif %}
+                    </tbody>
+                </table>
+            
+            <div class= "field">
+                <div class ="control d-flex justify-content-center gap-2 py-4">
+                    {% if request.user.is_superuser or request.user.is_staff %}
+                    
+                    <a href="{% url 'accept_fix' detail.service_id %}">
+                        <button type="submit" class="btn btn-primary mx-2">
+                            Accept Fix
+                        </button>
+                    </a> 
+                    {% endif %}         
+                </div>
+                <p>
+                    <span class="text-primary">
+                        {% if messages %}
+                        {% for message in messages %}
+                        {{message}}
+                        {% endfor %}
+                        {% endif %}
+                    </span>
+                </p>
+            </div>
+        </div>
+        
+        {% endfor %} {% endif %}
+    </section>
+
+ 
+
+  {% endblock %}

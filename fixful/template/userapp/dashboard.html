@@ -357,11 +357,13 @@
                   ><p style="font-size: 13px"> My Profile</p>
                 </a>
                 {% if request.user.is_staff %}
+                <a href="{% url 'show_user' 'staff' %}" class="deco d-flex"
+                  ><p style="font-size: 13px"> View Staffs</p>
+                </a>
+                {% endif %}
+                {% if request.user.is_staff %}
                 <a href="{% url 'show_user' 'customer' %}" class="deco d-flex"
                   ><p style="font-size: 13px"> View Customers</p>
-                </a>
-                <a href="{% url 'display_request_details' %}" class="deco d-flex"
-                  ><p style="font-size: 13px">Notification</p>
                 </a>
                 {% endif %}
                 
