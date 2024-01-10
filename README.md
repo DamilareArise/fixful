@@ -1,1 +1,1 @@
-A tchnical assistance application built on python django framework
+A technical assistance application built on python django framework
