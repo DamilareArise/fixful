@@ -3,25 +3,21 @@
     {% block title2 %}Login{% endblock title2 %}
     {% block body_content2 %}
     {% load static %}
-    <div style="margin-top: 10vh;">
-        <div class="row">
-        <div class="col-3"></div>
-        <div class="col-md-6 col-12" style="margin-top: 20px;">
-            <form method='post' class='p-5'>
+    <div style="margin-top: 9vh; padding:40px;">
+        <div class="row justify-content-center">
+        <div class="col-md-5 col-lg-4 col-12 border shadow rounded p-4 mt-3">
+            <h5 class="fw-semibold mb-3">Login</h5>
+            <form method='post'>
                 {% csrf_token %}
-                {% load bootstrap %}
-                {{form |bootstrap_horizontal:'col-sm-6'}}
+                {% load crispy_forms_tags %}
+                {{form|crispy}}
 
-                <div class="d-flex justify-content-center mt-3">
-                    <input class='btn btn-primary me-3' type='submit' value='login'>
-
-                    <p class='col-md-6 col-lg-6 col-xxl-6 col-sm-12 col-xm-12 '>
-                        <a href ="{% url 'password_reset' %}" class ="text-secondary">Forgot password</a>
-                    </P>
+                <div class="d-flex justify-content-between align-items-center mt-3">
+                    <input class='btn btn-primary' type='submit' value='Login'>
+                    <a href="{% url 'password_reset' %}" class="text-secondary small">Forgot password?</a>
                 </div>
             </form>
         </div>
-        <div class='col-3'></div>
         </div>
     </div>
         {% endblock %}

@@ -4,9 +4,8 @@
     {% block body_content2 %}
     {% load static %}
     <div style="margin-top: 10vh;">
-        <div class="row">
-        <div class="col-3"></div>
-        <div class="col-md-6 col-12 col-offset-3">
+        <div class="row justify-content-center">
+        <div class="col-md-6 col-lg-5 col-12">
             <p><span class="date text-pink text-size-30px mt-5">
                 {% if messages %}
                     {% for message in messages %}
@@ -16,10 +15,10 @@
             </p>
             <form method="post" class="mt-4 border shadow p-3", encytype="multipart/form-data">
                 {% csrf_token %}
-                {% load bootstrap %}
+                {% load crispy_forms_tags %}
 
-                {{user_form|bootstrap}}
-                {{profile_form|bootstrap}}
+                {{user_form|crispy}}
+                {{profile_form|crispy}}
 
                 <div class='d-flex justify-content-center'>
                     <input class="btn btn-primary mt-2 me-3 loginbutton" type="submit" value="Update">
@@ -27,8 +26,6 @@
             </form>
         </div>
     </div>
-    <div class='col-3'></div>
-</div>
 </div>
 
 {% endblock %}

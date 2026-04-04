@@ -54,7 +54,10 @@
                 
                 </ul>
                 {% if request.user.is_authenticated %}
-                    <a href="{% url 'logout' %}"><button class="btn butt1 me-1" type="">logout</button></a>
+                  <form action="{% url 'logout' %}" method="post">
+                    {% csrf_token %}
+                    <button class="btn butt1 me-1" type="">logout</button>
+                  </form>
 
                 {% else %}
                   <a href="{% url 'login' %}"><button class="btn butt1 me-1" type="">Login</button></a>
@@ -65,7 +68,7 @@
         </nav>
 
         {% block body_content2 %}
-        
+
         {% endblock body_content2 %}
         <footer class="footer">
             <div class="row foot">

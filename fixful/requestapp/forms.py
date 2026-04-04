@@ -24,18 +24,17 @@ class Request_form(forms.ModelForm):
 
 
 class AcceptFix_forms(forms.ModelForm):
-    list_engineer = [("", "---------------")]
+    # list_engineer = [("", "---------------")]
 
-    for user in User.objects.filter(is_staff=True):
-        if user.profile.position =="Engineer":
-            _id = user.id
-            
-            engineer_user = User.objects.get(id=_id)
-     
-            list_engineer.append((engineer_user.first_name + " " + engineer_user.last_name, engineer_user.first_name + " " + engineer_user.last_name ))
-   
+    # for user in User.objects.filter(is_staff=True):
+    #     if user.profile.position =="Engineer":
+    #         _id = user.id
+    #
+    #         engineer_user = User.objects.get(id=_id)
+    #
+    #         list_engineer.append((engineer_user.first_name + " " + engineer_user.last_name, engineer_user.first_name + " " + engineer_user.last_name ))
 
-    engineer = forms.ChoiceField(choices=list_engineer, required = False) 
+    engineer = forms.ChoiceField(choices=[], required = False)
     class Meta:
         model = Repair_category
         fields = [
